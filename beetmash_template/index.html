@@ -23,17 +23,13 @@
 <body>
 	<canvas id="beetmash-canvas"></canvas>
 	<script type="module">
-		// import init from 'https://storage.googleapis.com/beet-examples/app_full/main.js'
-		import init from './main.js'
-		// init('https://storage.googleapis.com/beet-examples/app_full/main_bg.wasm')
-		init('./main_bg.wasm')
+		import init from './wasm/main.js'
+		init('./wasm/main_bg.wasm')
 			.catch((error) => {
 				if (!error.message.startsWith("Using exceptions for control flow,"))
 					throw error
 			})
 		// .then(() => console.log('Wasm initialized'))
-
-
 
 		const replicationRegistry =
 		{
