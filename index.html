@@ -41,30 +41,134 @@
 	<nav>
 		<ul>
 			<li><a href="/">None</a></li>
-			<li><a href="?app=beetmash_template">Beetmash Template</a></li>
-			<li><a href="?app=sewb">SEWB</a></li>
+			<li><a href="?demo=beetmash_template">Beetmash Template</a></li>
+			<li><a href="?demo=sewb">SEWB</a></li>
+			<li><a href="?demo=fetch">Fetch</a></li>
+			<li><a href="?demo=flock">Flock</a></li>
+			<li><a href="?demo=seek">Seek</a></li>
+			<li><a href="?demo=frozen-lake-train">Froze Lake - Training</a></li>
+			<li><a href="?demo=frozen-lake-run">Froze Lake - Run</a></li>
+			<li><a href="?demo=hello-animation">Hello Animation</a></li>
+			<li><a href="?demo=hello-ml">Hello ML</a></li>
+			<li><a href="?demo=hello-world">Hello World</a></li>
+			<li><a href="?demo=seek-3d">Seek 3d</a></li>
 		</ul>
 	</nav>
 	<canvas id="beetmash-canvas"></canvas>
 
 	<script type="module">
-		const appName = new URLSearchParams(window.location.search).get('app');
-		loadApp()
+
+		const appLookup = {
+			'fetch': 'app_ml',
+			'hello-ml': 'app_ml',
+			'frozen-lake-run': 'app_ml',
+			'frozen-lake-train': 'app_ml',
+		}
+
+		const crateLookup = {
+			'beetmash_template': 'beetmash_template',
+			'sewb': 'sewb',
+			'fetch': 'beet',
+			'flock': 'beet',
+			'seek': 'beet',
+			'frozen-lake-train': 'beet',
+			'frozen-lake-run': 'beet',
+			'hello-animation': 'beet',
+			'hello-ml': 'beet',
+			'hello-world': 'beet',
+			'seek-3d': 'beet',
+		}
+
+		const sceneLookup = {
+			'beetmash_template': [
+				'beetmash_template/scenes/my-base-scene.json',
+				'beetmash_template/scenes/my-beautiful-scene.json'
+			],
+			'sewb': [
+				'sewb/scenes/basics.json',
+				'sewb/scenes/wellbeing-inheritance.json',
+			],
+			'fetch': [
+				'beetmash/scenes/ui-terminal-input.json',
+				'beetmash/scenes/lighting-3d.json',
+				'beetmash/scenes/ground-3d.json',
+				'beet/scenes/beet-debug.json',
+				'beet/scenes/fetch-scene.json',
+				'beet/scenes/fetch-npc.json',
+			],
+			'flock': [
+				'beetmash/scenes/camera-2d.json',
+				'beetmash/scenes/space-scene.json',
+				'beet/scenes/beet-debug.json',
+				'beet/scenes/flock.json',
+			],
+			'seek': [
+				'beetmash/scenes/camera-2d.json',
+				'beetmash/scenes/space-scene.json',
+				'beet/scenes/beet-debug.json',
+				'beet/scenes/seek.json',
+			],
+			'frozen-lake-train': [
+				'beetmash/scenes/lighting-3d.json',
+				'beet/scenes/frozen-lake-scene.json',
+				'beet/scenes/frozen-lake-train.json',
+			],
+			'frozen-lake-run': [
+				'beetmash/scenes/lighting-3d.json',
+				'beet/scenes/frozen-lake-scene.json',
+				'beet/scenes/frozen-lake-run.json',
+			],
+			'hello-animation': [
+				'beetmash/scenes/ui-terminal.json',
+				'beetmash/scenes/lighting-3d.json',
+				'beetmash/scenes/ground-3d.json',
+				'beet/scenes/beet-debug.json',
+				'beet/scenes/hello-animation.json',
+			],
+			'hello-ml': [
+				'beetmash/scenes/camera-2d.json',
+				'beetmash/scenes/ui-terminal-input.json',
+				'beet/scenes/beet-debug.json',
+				'beet/scenes/hello-ml.json',
+			],
+			'hello-world': [
+				'beetmash/scenes/camera-2d.json',
+				'beetmash/scenes/ui-terminal.json',
+				'beet/scenes/beet-debug.json',
+				'beet/scenes/hello-world.json',
+			],
+			'seek-3d': [
+				'beetmash/scenes/ui-terminal.json',
+				'beetmash/scenes/lighting-3d.json',
+				'beetmash/scenes/ground-3d.json',
+				'beet/scenes/beet-debug.json',
+				'beet/scenes/seek-3d.json',
+			]
+		}
+
+
+
+
+		const demoName = new URLSearchParams(window.location.search).get('demo');
+		const crateName = crateLookup[demoName]
+		const appName = appLookup[demoName] ?? 'app'
+		let scenesToLoad = sceneLookup[demoName]
+		if (demoName)
+			loadApp()
 
 		async function loadApp() {
+
 			const canvas = document.getElementById('beetmash-canvas');
 
-			if (!appName || appName === '0')
-				return
-			console.log(`Loading app: ${appName}`)
-			const wasm = await import(`/${appName}/main.js`)
+			console.log(`Loading app..`)
+			const wasm = await import(`/${crateName}/${appName}.js`)
 				.catch((error) => {
 					document.getElementById('error-msg').innerText = error
 				})
-			await wasm.default(`/${appName}/main_bg.wasm`)
+			await wasm.default(`/${crateName}/${appName}_bg.wasm`)
 				.catch((error) => {
 					if (!error.message.startsWith("Using exceptions for control flow,"))
-						throw error
+						document.getElementById('error-msg').innerText = error
 				})
 		}
 		const replicationRegistry =
@@ -77,17 +181,6 @@
 			"beetmash_scene::utils::spawn_scene_file::SpawnSceneFileResponse": 5,
 			"beetmash_core::render::screenshot::SaveScreenshot": 6
 		}
-
-		const sceneLookup = {
-			'beetmash_template': [
-				'my-base-scene.json',
-				'my-beautiful-scene.json'
-			],
-			'sewb': [
-				'empty.json',
-			]
-		}
-
 
 		function sendUserMessage(message) {
 			sendMessage("beetmash_net::events::common_events::OnUserMessage", message)
@@ -139,8 +232,8 @@
 				if (message?.SendObserver?.reg_id === replicationRegistry["beetmash_net::events::common_events::AppStartup"]) {
 					console.log('AppStartup')
 
-					for (const scene of sceneLookup[appName]) {
-						await loadScene(`${appName}/scenes/${scene}`)
+					for (const scene of scenesToLoad) {
+						await loadScene(scene)
 					}
 					console.log('All scenes sent')
 					sendUserMessage('loud and clear')

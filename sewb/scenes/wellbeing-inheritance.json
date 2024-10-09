@@ -1,0 +1,2766 @@
+{
+  "resources": {},
+  "entities": {
+    "4294967322": {
+      "components": {
+        "beet_spatial::movement::force_bundle::Force": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "beet_spatial::movement::force_bundle::Impulse": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "beet_spatial::movement::force_bundle::Mass": [
+          1.0
+        ],
+        "beet_spatial::movement::force_bundle::Velocity": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "beet_spatial::movement::force_bundle::VelocityScalar": [
+          [
+            1.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "beet_spatial::steer::steer_actions::arrive::ArriveRadius": [
+          0.0
+        ],
+        "beet_spatial::steer::steer_bundle::MaxForce": [
+          9990.0
+        ],
+        "beet_spatial::steer::steer_bundle::MaxSpeed": [
+          10.0
+        ],
+        "beetmash_scene::utils::bundle_placeholder::BundlePlaceholder": {
+          "Pbr": {
+            "mesh": {
+              "Cylinder": {
+                "radius": 0.5,
+                "half_height": 0.002
+              }
+            },
+            "material": {
+              "StandardMaterial": {
+                "base_color": {
+                  "Srgba": {
+                    "red": 0.23137255,
+                    "green": 0.50980395,
+                    "blue": 0.9647059,
+                    "alpha": 1.0
+                  }
+                },
+                "unlit": true
+              }
+            }
+          }
+        },
+        "bevy_core::name::Name": "Agent",
+        "bevy_hierarchy::components::children::Children": [
+          [
+            4294967323,
+            4294967324
+          ]
+        ],
+        "bevy_transform::components::global_transform::GlobalTransform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "bevy_transform::components::transform::Transform": {
+          "translation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            1.0,
+            0.0,
+            0.0,
+            -4.371139e-8
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "mrchantey_beetmash_sewb::mechanics::collectable::Collecter": {},
+        "mrchantey_beetmash_sewb::mechanics::target_nearest::TargetNearest<mrchantey_beetmash_sewb::mechanics::collectable::Collectable>": {},
+        "mrchantey_beetmash_sewb::mechanics::wellness::Wellness": {}
+      }
+    },
+    "4294967323": {
+      "components": {
+        "beet_flow::lifecycle::components::target_agent::TargetAgent": [
+          4294967322
+        ],
+        "bevy_core::name::Name": "Wellness Value",
+        "bevy_hierarchy::components::parent::Parent": [
+          4294967322
+        ],
+        "mrchantey_beetmash_sewb::mechanics::wellness::Wellness": {},
+        "mrchantey_beetmash_sewb::stats::value_components::float_value::FloatValue": [
+          10.0
+        ],
+        "mrchantey_beetmash_sewb::stats::value_components::set_over_time::SetOverTime": {
+          "value": 0.1,
+          "op": "Sub",
+          "timer": {
+            "stopwatch": {
+              "elapsed": {
+                "secs": 0,
+                "nanos": 0
+              },
+              "paused": false
+            },
+            "duration": {
+              "secs": 1,
+              "nanos": 0
+            },
+            "mode": "Repeating",
+            "finished": false,
+            "times_finished_this_tick": 0
+          }
+        },
+        "mrchantey_beetmash_sewb::stats::value_effects::lerp_color::LerpColor": {
+          "from": {
+            "hue": 0.0,
+            "saturation": 0.84236455,
+            "lightness": 0.6019608,
+            "alpha": 1.0
+          },
+          "to": {
+            "hue": 198.63014,
+            "saturation": 0.8866398,
+            "lightness": 0.4843137,
+            "alpha": 1.0
+          },
+          "min": 0.0,
+          "max": 10.0
+        }
+      }
+    },
+    "4294967324": {
+      "components": {
+        "beet_flow::actions::on_trigger::on_trigger_action::OnTrigger<beet_flow::actions::on_trigger::insert_on_trigger::InsertHandler<beet_flow::actions::on_trigger::on_trigger_handler::DefaultMapFunc<beet_flow::events::on_run::OnRun, beet_flow::lifecycle::components::running::Running, ()>>>": {
+          "params": {},
+          "sources": [],
+          "target": "This"
+        },
+        "beet_flow::actions::on_trigger::on_trigger_action::OnTrigger<beet_flow::actions::on_trigger::remove_on_trigger::RemoveHandler<beet_flow::events::on_run_result::OnRunResult, beet_flow::lifecycle::components::running::Running, ()>>": {
+          "params": [],
+          "sources": [],
+          "target": "This"
+        },
+        "beet_flow::lifecycle::components::running::Running": {},
+        "beet_flow::lifecycle::components::target_agent::TargetAgent": [
+          4294967322
+        ],
+        "beet_spatial::steer::steer_actions::seek::Seek": {
+          "on_not_found": "Clear"
+        },
+        "bevy_core::name::Name": "Seek",
+        "bevy_hierarchy::components::parent::Parent": [
+          4294967322
+        ]
+      }
+    },
+    "4294967325": {
+      "components": {
+        "beet_flow::lifecycle::components::target_agent::TargetAgent": [
+          4294967322
+        ],
+        "beetmash_scene::utils::bundle_placeholder::BundlePlaceholder": {
+          "Text": {
+            "sections": [
+              {
+                "value": "Wellness: ",
+                "style": {
+                  "font": {
+                    "Weak": {
+                      "Uuid": {
+                        "uuid": "97128bb1-2588-480b-bdc6-87b4adbec477"
+                      }
+                    }
+                  },
+                  "font_size": 25.0,
+                  "color": {
+                    "LinearRgba": {
+                      "red": 1.0,
+                      "green": 1.0,
+                      "blue": 1.0,
+                      "alpha": 1.0
+                    }
+                  }
+                }
+              },
+              {
+                "value": "0",
+                "style": {
+                  "font": {
+                    "Weak": {
+                      "Uuid": {
+                        "uuid": "97128bb1-2588-480b-bdc6-87b4adbec477"
+                      }
+                    }
+                  },
+                  "font_size": 25.0,
+                  "color": {
+                    "LinearRgba": {
+                      "red": 1.0,
+                      "green": 1.0,
+                      "blue": 1.0,
+                      "alpha": 1.0
+                    }
+                  }
+                }
+              }
+            ],
+            "style": {
+              "display": "Flex",
+              "position_type": "Absolute",
+              "overflow": {
+                "x": "Visible",
+                "y": "Visible"
+              },
+              "left": "Auto",
+              "right": "Auto",
+              "top": "Auto",
+              "bottom": {
+                "Px": 0.0
+              },
+              "width": "Auto",
+              "height": "Auto",
+              "min_width": "Auto",
+              "min_height": "Auto",
+              "max_width": "Auto",
+              "max_height": "Auto",
+              "aspect_ratio": null,
+              "align_items": "Default",
+              "justify_items": "Default",
+              "align_self": "Auto",
+              "justify_self": "Auto",
+              "align_content": "Default",
+              "justify_content": "Default",
+              "margin": {
+                "left": {
+                  "Px": 0.0
+                },
+                "right": {
+                  "Px": 0.0
+                },
+                "top": {
+                  "Px": 0.0
+                },
+                "bottom": {
+                  "Px": 0.0
+                }
+              },
+              "padding": {
+                "left": {
+                  "Px": 0.0
+                },
+                "right": {
+                  "Px": 0.0
+                },
+                "top": {
+                  "Px": 0.0
+                },
+                "bottom": {
+                  "Px": 0.0
+                }
+              },
+              "border": {
+                "left": {
+                  "Px": 0.0
+                },
+                "right": {
+                  "Px": 0.0
+                },
+                "top": {
+                  "Px": 0.0
+                },
+                "bottom": {
+                  "Px": 0.0
+                }
+              },
+              "flex_direction": "Row",
+              "flex_wrap": "NoWrap",
+              "flex_grow": 0.0,
+              "flex_shrink": 1.0,
+              "flex_basis": "Auto",
+              "row_gap": {
+                "Px": 0.0
+              },
+              "column_gap": {
+                "Px": 0.0
+              },
+              "grid_auto_flow": "Row",
+              "grid_template_rows": [],
+              "grid_template_columns": [],
+              "grid_auto_rows": [],
+              "grid_auto_columns": [],
+              "grid_row": {
+                "start": null,
+                "span": 1,
+                "end": null
+              },
+              "grid_column": {
+                "start": null,
+                "span": 1,
+                "end": null
+              }
+            },
+            "visibility": "Hidden",
+            "linebreak": "NoWrap"
+          }
+        },
+        "bevy_core::name::Name": "Wellness Text",
+        "mrchantey_beetmash_sewb::mechanics::wellness::Wellness": {},
+        "mrchantey_beetmash_sewb::rendering::delay_visibility::DelayVisibility": {
+          "timer": {
+            "stopwatch": {
+              "elapsed": {
+                "secs": 0,
+                "nanos": 0
+              },
+              "paused": false
+            },
+            "duration": {
+              "secs": 0,
+              "nanos": 48000000
+            },
+            "mode": "Once",
+            "finished": false,
+            "times_finished_this_tick": 0
+          }
+        },
+        "mrchantey_beetmash_sewb::rendering::set_text::SetText": {
+          "section": 1
+        },
+        "mrchantey_beetmash_sewb::rendering::world_space_ui::WorldSpaceUi": {}
+      }
+    },
+    "4294967326": {
+      "components": {
+        "beetmash_scene::utils::bundle_placeholder::BundlePlaceholder": {
+          "Pbr": {
+            "mesh": {
+              "Cylinder": {
+                "radius": 0.5,
+                "half_height": 0.001
+              }
+            },
+            "material": {
+              "StandardMaterial": {
+                "base_color": {
+                  "Srgba": {
+                    "red": 0.0627451,
+                    "green": 0.7254902,
+                    "blue": 0.5058824,
+                    "alpha": 1.0
+                  }
+                },
+                "unlit": true
+              }
+            }
+          }
+        },
+        "bevy_core::name::Name": "Collectable",
+        "bevy_render::view::visibility::InheritedVisibility": [
+          false
+        ],
+        "bevy_render::view::visibility::ViewVisibility": [
+          false
+        ],
+        "bevy_render::view::visibility::Visibility": "Hidden",
+        "bevy_transform::components::global_transform::GlobalTransform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "bevy_transform::components::transform::Transform": {
+          "translation": [
+            -10.395303,
+            0.0,
+            -15.892682
+          ],
+          "rotation": [
+            1.0,
+            0.0,
+            0.0,
+            -4.371139e-8
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "mrchantey_beetmash_sewb::mechanics::collectable::Collectable": {},
+        "mrchantey_beetmash_sewb::rendering::delay_visibility::DelayVisibility": {
+          "timer": {
+            "stopwatch": {
+              "elapsed": {
+                "secs": 0,
+                "nanos": 0
+              },
+              "paused": false
+            },
+            "duration": {
+              "secs": 0,
+              "nanos": 48000000
+            },
+            "mode": "Once",
+            "finished": false,
+            "times_finished_this_tick": 0
+          }
+        }
+      }
+    },
+    "4294967327": {
+      "components": {
+        "beet_flow::lifecycle::components::target_agent::TargetAgent": [
+          4294967326
+        ],
+        "beetmash_scene::utils::bundle_placeholder::BundlePlaceholder": {
+          "Text": {
+            "sections": [
+              {
+                "value": "A walk in the park",
+                "style": {
+                  "font": {
+                    "Weak": {
+                      "Uuid": {
+                        "uuid": "97128bb1-2588-480b-bdc6-87b4adbec477"
+                      }
+                    }
+                  },
+                  "font_size": 25.0,
+                  "color": {
+                    "LinearRgba": {
+                      "red": 1.0,
+                      "green": 1.0,
+                      "blue": 1.0,
+                      "alpha": 1.0
+                    }
+                  }
+                }
+              }
+            ],
+            "style": {
+              "display": "Flex",
+              "position_type": "Absolute",
+              "overflow": {
+                "x": "Visible",
+                "y": "Visible"
+              },
+              "left": "Auto",
+              "right": "Auto",
+              "top": "Auto",
+              "bottom": {
+                "Px": 0.0
+              },
+              "width": "Auto",
+              "height": "Auto",
+              "min_width": "Auto",
+              "min_height": "Auto",
+              "max_width": "Auto",
+              "max_height": "Auto",
+              "aspect_ratio": null,
+              "align_items": "Default",
+              "justify_items": "Default",
+              "align_self": "Auto",
+              "justify_self": "Auto",
+              "align_content": "Default",
+              "justify_content": "Default",
+              "margin": {
+                "left": {
+                  "Px": 0.0
+                },
+                "right": {
+                  "Px": 0.0
+                },
+                "top": {
+                  "Px": 0.0
+                },
+                "bottom": {
+                  "Px": 0.0
+                }
+              },
+              "padding": {
+                "left": {
+                  "Px": 0.0
+                },
+                "right": {
+                  "Px": 0.0
+                },
+                "top": {
+                  "Px": 0.0
+                },
+                "bottom": {
+                  "Px": 0.0
+                }
+              },
+              "border": {
+                "left": {
+                  "Px": 0.0
+                },
+                "right": {
+                  "Px": 0.0
+                },
+                "top": {
+                  "Px": 0.0
+                },
+                "bottom": {
+                  "Px": 0.0
+                }
+              },
+              "flex_direction": "Row",
+              "flex_wrap": "NoWrap",
+              "flex_grow": 0.0,
+              "flex_shrink": 1.0,
+              "flex_basis": "Auto",
+              "row_gap": {
+                "Px": 0.0
+              },
+              "column_gap": {
+                "Px": 0.0
+              },
+              "grid_auto_flow": "Row",
+              "grid_template_rows": [],
+              "grid_template_columns": [],
+              "grid_auto_rows": [],
+              "grid_auto_columns": [],
+              "grid_row": {
+                "start": null,
+                "span": 1,
+                "end": null
+              },
+              "grid_column": {
+                "start": null,
+                "span": 1,
+                "end": null
+              }
+            },
+            "visibility": "Hidden",
+            "linebreak": "NoWrap"
+          }
+        },
+        "bevy_core::name::Name": "Collectable Label",
+        "mrchantey_beetmash_sewb::rendering::delay_visibility::DelayVisibility": {
+          "timer": {
+            "stopwatch": {
+              "elapsed": {
+                "secs": 0,
+                "nanos": 0
+              },
+              "paused": false
+            },
+            "duration": {
+              "secs": 0,
+              "nanos": 48000000
+            },
+            "mode": "Once",
+            "finished": false,
+            "times_finished_this_tick": 0
+          }
+        },
+        "mrchantey_beetmash_sewb::rendering::world_space_ui::WorldSpaceUi": {},
+        "mrchantey_beetmash_sewb::utils::despawn_chain::DespawnChain": [
+          4294967326
+        ]
+      }
+    },
+    "4294967328": {
+      "components": {
+        "beetmash_scene::utils::bundle_placeholder::BundlePlaceholder": {
+          "Pbr": {
+            "mesh": {
+              "Cylinder": {
+                "radius": 0.5,
+                "half_height": 0.001
+              }
+            },
+            "material": {
+              "StandardMaterial": {
+                "base_color": {
+                  "Srgba": {
+                    "red": 0.0627451,
+                    "green": 0.7254902,
+                    "blue": 0.5058824,
+                    "alpha": 1.0
+                  }
+                },
+                "unlit": true
+              }
+            }
+          }
+        },
+        "bevy_core::name::Name": "Collectable",
+        "bevy_render::view::visibility::InheritedVisibility": [
+          false
+        ],
+        "bevy_render::view::visibility::ViewVisibility": [
+          false
+        ],
+        "bevy_render::view::visibility::Visibility": "Hidden",
+        "bevy_transform::components::global_transform::GlobalTransform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "bevy_transform::components::transform::Transform": {
+          "translation": [
+            -5.845289,
+            0.0,
+            1.8841791
+          ],
+          "rotation": [
+            1.0,
+            0.0,
+            0.0,
+            -4.371139e-8
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "mrchantey_beetmash_sewb::mechanics::collectable::Collectable": {},
+        "mrchantey_beetmash_sewb::rendering::delay_visibility::DelayVisibility": {
+          "timer": {
+            "stopwatch": {
+              "elapsed": {
+                "secs": 0,
+                "nanos": 0
+              },
+              "paused": false
+            },
+            "duration": {
+              "secs": 0,
+              "nanos": 48000000
+            },
+            "mode": "Once",
+            "finished": false,
+            "times_finished_this_tick": 0
+          }
+        }
+      }
+    },
+    "4294967329": {
+      "components": {
+        "beet_flow::lifecycle::components::target_agent::TargetAgent": [
+          4294967328
+        ],
+        "beetmash_scene::utils::bundle_placeholder::BundlePlaceholder": {
+          "Text": {
+            "sections": [
+              {
+                "value": "A walk in the park",
+                "style": {
+                  "font": {
+                    "Weak": {
+                      "Uuid": {
+                        "uuid": "97128bb1-2588-480b-bdc6-87b4adbec477"
+                      }
+                    }
+                  },
+                  "font_size": 25.0,
+                  "color": {
+                    "LinearRgba": {
+                      "red": 1.0,
+                      "green": 1.0,
+                      "blue": 1.0,
+                      "alpha": 1.0
+                    }
+                  }
+                }
+              }
+            ],
+            "style": {
+              "display": "Flex",
+              "position_type": "Absolute",
+              "overflow": {
+                "x": "Visible",
+                "y": "Visible"
+              },
+              "left": "Auto",
+              "right": "Auto",
+              "top": "Auto",
+              "bottom": {
+                "Px": 0.0
+              },
+              "width": "Auto",
+              "height": "Auto",
+              "min_width": "Auto",
+              "min_height": "Auto",
+              "max_width": "Auto",
+              "max_height": "Auto",
+              "aspect_ratio": null,
+              "align_items": "Default",
+              "justify_items": "Default",
+              "align_self": "Auto",
+              "justify_self": "Auto",
+              "align_content": "Default",
+              "justify_content": "Default",
+              "margin": {
+                "left": {
+                  "Px": 0.0
+                },
+                "right": {
+                  "Px": 0.0
+                },
+                "top": {
+                  "Px": 0.0
+                },
+                "bottom": {
+                  "Px": 0.0
+                }
+              },
+              "padding": {
+                "left": {
+                  "Px": 0.0
+                },
+                "right": {
+                  "Px": 0.0
+                },
+                "top": {
+                  "Px": 0.0
+                },
+                "bottom": {
+                  "Px": 0.0
+                }
+              },
+              "border": {
+                "left": {
+                  "Px": 0.0
+                },
+                "right": {
+                  "Px": 0.0
+                },
+                "top": {
+                  "Px": 0.0
+                },
+                "bottom": {
+                  "Px": 0.0
+                }
+              },
+              "flex_direction": "Row",
+              "flex_wrap": "NoWrap",
+              "flex_grow": 0.0,
+              "flex_shrink": 1.0,
+              "flex_basis": "Auto",
+              "row_gap": {
+                "Px": 0.0
+              },
+              "column_gap": {
+                "Px": 0.0
+              },
+              "grid_auto_flow": "Row",
+              "grid_template_rows": [],
+              "grid_template_columns": [],
+              "grid_auto_rows": [],
+              "grid_auto_columns": [],
+              "grid_row": {
+                "start": null,
+                "span": 1,
+                "end": null
+              },
+              "grid_column": {
+                "start": null,
+                "span": 1,
+                "end": null
+              }
+            },
+            "visibility": "Hidden",
+            "linebreak": "NoWrap"
+          }
+        },
+        "bevy_core::name::Name": "Collectable Label",
+        "mrchantey_beetmash_sewb::rendering::delay_visibility::DelayVisibility": {
+          "timer": {
+            "stopwatch": {
+              "elapsed": {
+                "secs": 0,
+                "nanos": 0
+              },
+              "paused": false
+            },
+            "duration": {
+              "secs": 0,
+              "nanos": 48000000
+            },
+            "mode": "Once",
+            "finished": false,
+            "times_finished_this_tick": 0
+          }
+        },
+        "mrchantey_beetmash_sewb::rendering::world_space_ui::WorldSpaceUi": {},
+        "mrchantey_beetmash_sewb::utils::despawn_chain::DespawnChain": [
+          4294967328
+        ]
+      }
+    },
+    "4294967330": {
+      "components": {
+        "beetmash_scene::utils::bundle_placeholder::BundlePlaceholder": {
+          "Pbr": {
+            "mesh": {
+              "Cylinder": {
+                "radius": 0.5,
+                "half_height": 0.001
+              }
+            },
+            "material": {
+              "StandardMaterial": {
+                "base_color": {
+                  "Srgba": {
+                    "red": 0.0627451,
+                    "green": 0.7254902,
+                    "blue": 0.5058824,
+                    "alpha": 1.0
+                  }
+                },
+                "unlit": true
+              }
+            }
+          }
+        },
+        "bevy_core::name::Name": "Collectable",
+        "bevy_render::view::visibility::InheritedVisibility": [
+          false
+        ],
+        "bevy_render::view::visibility::ViewVisibility": [
+          false
+        ],
+        "bevy_render::view::visibility::Visibility": "Hidden",
+        "bevy_transform::components::global_transform::GlobalTransform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "bevy_transform::components::transform::Transform": {
+          "translation": [
+            -10.677233,
+            0.0,
+            8.905268
+          ],
+          "rotation": [
+            1.0,
+            0.0,
+            0.0,
+            -4.371139e-8
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "mrchantey_beetmash_sewb::mechanics::collectable::Collectable": {},
+        "mrchantey_beetmash_sewb::rendering::delay_visibility::DelayVisibility": {
+          "timer": {
+            "stopwatch": {
+              "elapsed": {
+                "secs": 0,
+                "nanos": 0
+              },
+              "paused": false
+            },
+            "duration": {
+              "secs": 0,
+              "nanos": 48000000
+            },
+            "mode": "Once",
+            "finished": false,
+            "times_finished_this_tick": 0
+          }
+        }
+      }
+    },
+    "4294967331": {
+      "components": {
+        "beet_flow::lifecycle::components::target_agent::TargetAgent": [
+          4294967330
+        ],
+        "beetmash_scene::utils::bundle_placeholder::BundlePlaceholder": {
+          "Text": {
+            "sections": [
+              {
+                "value": "A walk in the park",
+                "style": {
+                  "font": {
+                    "Weak": {
+                      "Uuid": {
+                        "uuid": "97128bb1-2588-480b-bdc6-87b4adbec477"
+                      }
+                    }
+                  },
+                  "font_size": 25.0,
+                  "color": {
+                    "LinearRgba": {
+                      "red": 1.0,
+                      "green": 1.0,
+                      "blue": 1.0,
+                      "alpha": 1.0
+                    }
+                  }
+                }
+              }
+            ],
+            "style": {
+              "display": "Flex",
+              "position_type": "Absolute",
+              "overflow": {
+                "x": "Visible",
+                "y": "Visible"
+              },
+              "left": "Auto",
+              "right": "Auto",
+              "top": "Auto",
+              "bottom": {
+                "Px": 0.0
+              },
+              "width": "Auto",
+              "height": "Auto",
+              "min_width": "Auto",
+              "min_height": "Auto",
+              "max_width": "Auto",
+              "max_height": "Auto",
+              "aspect_ratio": null,
+              "align_items": "Default",
+              "justify_items": "Default",
+              "align_self": "Auto",
+              "justify_self": "Auto",
+              "align_content": "Default",
+              "justify_content": "Default",
+              "margin": {
+                "left": {
+                  "Px": 0.0
+                },
+                "right": {
+                  "Px": 0.0
+                },
+                "top": {
+                  "Px": 0.0
+                },
+                "bottom": {
+                  "Px": 0.0
+                }
+              },
+              "padding": {
+                "left": {
+                  "Px": 0.0
+                },
+                "right": {
+                  "Px": 0.0
+                },
+                "top": {
+                  "Px": 0.0
+                },
+                "bottom": {
+                  "Px": 0.0
+                }
+              },
+              "border": {
+                "left": {
+                  "Px": 0.0
+                },
+                "right": {
+                  "Px": 0.0
+                },
+                "top": {
+                  "Px": 0.0
+                },
+                "bottom": {
+                  "Px": 0.0
+                }
+              },
+              "flex_direction": "Row",
+              "flex_wrap": "NoWrap",
+              "flex_grow": 0.0,
+              "flex_shrink": 1.0,
+              "flex_basis": "Auto",
+              "row_gap": {
+                "Px": 0.0
+              },
+              "column_gap": {
+                "Px": 0.0
+              },
+              "grid_auto_flow": "Row",
+              "grid_template_rows": [],
+              "grid_template_columns": [],
+              "grid_auto_rows": [],
+              "grid_auto_columns": [],
+              "grid_row": {
+                "start": null,
+                "span": 1,
+                "end": null
+              },
+              "grid_column": {
+                "start": null,
+                "span": 1,
+                "end": null
+              }
+            },
+            "visibility": "Hidden",
+            "linebreak": "NoWrap"
+          }
+        },
+        "bevy_core::name::Name": "Collectable Label",
+        "mrchantey_beetmash_sewb::rendering::delay_visibility::DelayVisibility": {
+          "timer": {
+            "stopwatch": {
+              "elapsed": {
+                "secs": 0,
+                "nanos": 0
+              },
+              "paused": false
+            },
+            "duration": {
+              "secs": 0,
+              "nanos": 48000000
+            },
+            "mode": "Once",
+            "finished": false,
+            "times_finished_this_tick": 0
+          }
+        },
+        "mrchantey_beetmash_sewb::rendering::world_space_ui::WorldSpaceUi": {},
+        "mrchantey_beetmash_sewb::utils::despawn_chain::DespawnChain": [
+          4294967330
+        ]
+      }
+    },
+    "4294967332": {
+      "components": {
+        "beetmash_scene::utils::bundle_placeholder::BundlePlaceholder": {
+          "Pbr": {
+            "mesh": {
+              "Cylinder": {
+                "radius": 0.5,
+                "half_height": 0.001
+              }
+            },
+            "material": {
+              "StandardMaterial": {
+                "base_color": {
+                  "Srgba": {
+                    "red": 0.0627451,
+                    "green": 0.7254902,
+                    "blue": 0.5058824,
+                    "alpha": 1.0
+                  }
+                },
+                "unlit": true
+              }
+            }
+          }
+        },
+        "bevy_core::name::Name": "Collectable",
+        "bevy_render::view::visibility::InheritedVisibility": [
+          false
+        ],
+        "bevy_render::view::visibility::ViewVisibility": [
+          false
+        ],
+        "bevy_render::view::visibility::Visibility": "Hidden",
+        "bevy_transform::components::global_transform::GlobalTransform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "bevy_transform::components::transform::Transform": {
+          "translation": [
+            -11.354213,
+            0.0,
+            9.673715
+          ],
+          "rotation": [
+            1.0,
+            0.0,
+            0.0,
+            -4.371139e-8
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "mrchantey_beetmash_sewb::mechanics::collectable::Collectable": {},
+        "mrchantey_beetmash_sewb::rendering::delay_visibility::DelayVisibility": {
+          "timer": {
+            "stopwatch": {
+              "elapsed": {
+                "secs": 0,
+                "nanos": 0
+              },
+              "paused": false
+            },
+            "duration": {
+              "secs": 0,
+              "nanos": 48000000
+            },
+            "mode": "Once",
+            "finished": false,
+            "times_finished_this_tick": 0
+          }
+        }
+      }
+    },
+    "4294967333": {
+      "components": {
+        "beet_flow::lifecycle::components::target_agent::TargetAgent": [
+          4294967332
+        ],
+        "beetmash_scene::utils::bundle_placeholder::BundlePlaceholder": {
+          "Text": {
+            "sections": [
+              {
+                "value": "A walk in the park",
+                "style": {
+                  "font": {
+                    "Weak": {
+                      "Uuid": {
+                        "uuid": "97128bb1-2588-480b-bdc6-87b4adbec477"
+                      }
+                    }
+                  },
+                  "font_size": 25.0,
+                  "color": {
+                    "LinearRgba": {
+                      "red": 1.0,
+                      "green": 1.0,
+                      "blue": 1.0,
+                      "alpha": 1.0
+                    }
+                  }
+                }
+              }
+            ],
+            "style": {
+              "display": "Flex",
+              "position_type": "Absolute",
+              "overflow": {
+                "x": "Visible",
+                "y": "Visible"
+              },
+              "left": "Auto",
+              "right": "Auto",
+              "top": "Auto",
+              "bottom": {
+                "Px": 0.0
+              },
+              "width": "Auto",
+              "height": "Auto",
+              "min_width": "Auto",
+              "min_height": "Auto",
+              "max_width": "Auto",
+              "max_height": "Auto",
+              "aspect_ratio": null,
+              "align_items": "Default",
+              "justify_items": "Default",
+              "align_self": "Auto",
+              "justify_self": "Auto",
+              "align_content": "Default",
+              "justify_content": "Default",
+              "margin": {
+                "left": {
+                  "Px": 0.0
+                },
+                "right": {
+                  "Px": 0.0
+                },
+                "top": {
+                  "Px": 0.0
+                },
+                "bottom": {
+                  "Px": 0.0
+                }
+              },
+              "padding": {
+                "left": {
+                  "Px": 0.0
+                },
+                "right": {
+                  "Px": 0.0
+                },
+                "top": {
+                  "Px": 0.0
+                },
+                "bottom": {
+                  "Px": 0.0
+                }
+              },
+              "border": {
+                "left": {
+                  "Px": 0.0
+                },
+                "right": {
+                  "Px": 0.0
+                },
+                "top": {
+                  "Px": 0.0
+                },
+                "bottom": {
+                  "Px": 0.0
+                }
+              },
+              "flex_direction": "Row",
+              "flex_wrap": "NoWrap",
+              "flex_grow": 0.0,
+              "flex_shrink": 1.0,
+              "flex_basis": "Auto",
+              "row_gap": {
+                "Px": 0.0
+              },
+              "column_gap": {
+                "Px": 0.0
+              },
+              "grid_auto_flow": "Row",
+              "grid_template_rows": [],
+              "grid_template_columns": [],
+              "grid_auto_rows": [],
+              "grid_auto_columns": [],
+              "grid_row": {
+                "start": null,
+                "span": 1,
+                "end": null
+              },
+              "grid_column": {
+                "start": null,
+                "span": 1,
+                "end": null
+              }
+            },
+            "visibility": "Hidden",
+            "linebreak": "NoWrap"
+          }
+        },
+        "bevy_core::name::Name": "Collectable Label",
+        "mrchantey_beetmash_sewb::rendering::delay_visibility::DelayVisibility": {
+          "timer": {
+            "stopwatch": {
+              "elapsed": {
+                "secs": 0,
+                "nanos": 0
+              },
+              "paused": false
+            },
+            "duration": {
+              "secs": 0,
+              "nanos": 48000000
+            },
+            "mode": "Once",
+            "finished": false,
+            "times_finished_this_tick": 0
+          }
+        },
+        "mrchantey_beetmash_sewb::rendering::world_space_ui::WorldSpaceUi": {},
+        "mrchantey_beetmash_sewb::utils::despawn_chain::DespawnChain": [
+          4294967332
+        ]
+      }
+    },
+    "4294967334": {
+      "components": {
+        "beetmash_scene::utils::bundle_placeholder::BundlePlaceholder": {
+          "Pbr": {
+            "mesh": {
+              "Cylinder": {
+                "radius": 0.5,
+                "half_height": 0.001
+              }
+            },
+            "material": {
+              "StandardMaterial": {
+                "base_color": {
+                  "Srgba": {
+                    "red": 0.0627451,
+                    "green": 0.7254902,
+                    "blue": 0.5058824,
+                    "alpha": 1.0
+                  }
+                },
+                "unlit": true
+              }
+            }
+          }
+        },
+        "bevy_core::name::Name": "Collectable",
+        "bevy_render::view::visibility::InheritedVisibility": [
+          false
+        ],
+        "bevy_render::view::visibility::ViewVisibility": [
+          false
+        ],
+        "bevy_render::view::visibility::Visibility": "Hidden",
+        "bevy_transform::components::global_transform::GlobalTransform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "bevy_transform::components::transform::Transform": {
+          "translation": [
+            -7.8745985,
+            0.0,
+            -9.72394
+          ],
+          "rotation": [
+            1.0,
+            0.0,
+            0.0,
+            -4.371139e-8
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "mrchantey_beetmash_sewb::mechanics::collectable::Collectable": {},
+        "mrchantey_beetmash_sewb::rendering::delay_visibility::DelayVisibility": {
+          "timer": {
+            "stopwatch": {
+              "elapsed": {
+                "secs": 0,
+                "nanos": 0
+              },
+              "paused": false
+            },
+            "duration": {
+              "secs": 0,
+              "nanos": 48000000
+            },
+            "mode": "Once",
+            "finished": false,
+            "times_finished_this_tick": 0
+          }
+        }
+      }
+    },
+    "4294967335": {
+      "components": {
+        "beet_flow::lifecycle::components::target_agent::TargetAgent": [
+          4294967334
+        ],
+        "beetmash_scene::utils::bundle_placeholder::BundlePlaceholder": {
+          "Text": {
+            "sections": [
+              {
+                "value": "A walk in the park",
+                "style": {
+                  "font": {
+                    "Weak": {
+                      "Uuid": {
+                        "uuid": "97128bb1-2588-480b-bdc6-87b4adbec477"
+                      }
+                    }
+                  },
+                  "font_size": 25.0,
+                  "color": {
+                    "LinearRgba": {
+                      "red": 1.0,
+                      "green": 1.0,
+                      "blue": 1.0,
+                      "alpha": 1.0
+                    }
+                  }
+                }
+              }
+            ],
+            "style": {
+              "display": "Flex",
+              "position_type": "Absolute",
+              "overflow": {
+                "x": "Visible",
+                "y": "Visible"
+              },
+              "left": "Auto",
+              "right": "Auto",
+              "top": "Auto",
+              "bottom": {
+                "Px": 0.0
+              },
+              "width": "Auto",
+              "height": "Auto",
+              "min_width": "Auto",
+              "min_height": "Auto",
+              "max_width": "Auto",
+              "max_height": "Auto",
+              "aspect_ratio": null,
+              "align_items": "Default",
+              "justify_items": "Default",
+              "align_self": "Auto",
+              "justify_self": "Auto",
+              "align_content": "Default",
+              "justify_content": "Default",
+              "margin": {
+                "left": {
+                  "Px": 0.0
+                },
+                "right": {
+                  "Px": 0.0
+                },
+                "top": {
+                  "Px": 0.0
+                },
+                "bottom": {
+                  "Px": 0.0
+                }
+              },
+              "padding": {
+                "left": {
+                  "Px": 0.0
+                },
+                "right": {
+                  "Px": 0.0
+                },
+                "top": {
+                  "Px": 0.0
+                },
+                "bottom": {
+                  "Px": 0.0
+                }
+              },
+              "border": {
+                "left": {
+                  "Px": 0.0
+                },
+                "right": {
+                  "Px": 0.0
+                },
+                "top": {
+                  "Px": 0.0
+                },
+                "bottom": {
+                  "Px": 0.0
+                }
+              },
+              "flex_direction": "Row",
+              "flex_wrap": "NoWrap",
+              "flex_grow": 0.0,
+              "flex_shrink": 1.0,
+              "flex_basis": "Auto",
+              "row_gap": {
+                "Px": 0.0
+              },
+              "column_gap": {
+                "Px": 0.0
+              },
+              "grid_auto_flow": "Row",
+              "grid_template_rows": [],
+              "grid_template_columns": [],
+              "grid_auto_rows": [],
+              "grid_auto_columns": [],
+              "grid_row": {
+                "start": null,
+                "span": 1,
+                "end": null
+              },
+              "grid_column": {
+                "start": null,
+                "span": 1,
+                "end": null
+              }
+            },
+            "visibility": "Hidden",
+            "linebreak": "NoWrap"
+          }
+        },
+        "bevy_core::name::Name": "Collectable Label",
+        "mrchantey_beetmash_sewb::rendering::delay_visibility::DelayVisibility": {
+          "timer": {
+            "stopwatch": {
+              "elapsed": {
+                "secs": 0,
+                "nanos": 0
+              },
+              "paused": false
+            },
+            "duration": {
+              "secs": 0,
+              "nanos": 48000000
+            },
+            "mode": "Once",
+            "finished": false,
+            "times_finished_this_tick": 0
+          }
+        },
+        "mrchantey_beetmash_sewb::rendering::world_space_ui::WorldSpaceUi": {},
+        "mrchantey_beetmash_sewb::utils::despawn_chain::DespawnChain": [
+          4294967334
+        ]
+      }
+    },
+    "4294967336": {
+      "components": {
+        "beetmash_scene::utils::bundle_placeholder::BundlePlaceholder": {
+          "Pbr": {
+            "mesh": {
+              "Cylinder": {
+                "radius": 0.5,
+                "half_height": 0.001
+              }
+            },
+            "material": {
+              "StandardMaterial": {
+                "base_color": {
+                  "Srgba": {
+                    "red": 0.0627451,
+                    "green": 0.7254902,
+                    "blue": 0.5058824,
+                    "alpha": 1.0
+                  }
+                },
+                "unlit": true
+              }
+            }
+          }
+        },
+        "bevy_core::name::Name": "Collectable",
+        "bevy_render::view::visibility::InheritedVisibility": [
+          false
+        ],
+        "bevy_render::view::visibility::ViewVisibility": [
+          false
+        ],
+        "bevy_render::view::visibility::Visibility": "Hidden",
+        "bevy_transform::components::global_transform::GlobalTransform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "bevy_transform::components::transform::Transform": {
+          "translation": [
+            -13.563814,
+            0.0,
+            0.9651089
+          ],
+          "rotation": [
+            1.0,
+            0.0,
+            0.0,
+            -4.371139e-8
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "mrchantey_beetmash_sewb::mechanics::collectable::Collectable": {},
+        "mrchantey_beetmash_sewb::rendering::delay_visibility::DelayVisibility": {
+          "timer": {
+            "stopwatch": {
+              "elapsed": {
+                "secs": 0,
+                "nanos": 0
+              },
+              "paused": false
+            },
+            "duration": {
+              "secs": 0,
+              "nanos": 48000000
+            },
+            "mode": "Once",
+            "finished": false,
+            "times_finished_this_tick": 0
+          }
+        }
+      }
+    },
+    "4294967337": {
+      "components": {
+        "beet_flow::lifecycle::components::target_agent::TargetAgent": [
+          4294967336
+        ],
+        "beetmash_scene::utils::bundle_placeholder::BundlePlaceholder": {
+          "Text": {
+            "sections": [
+              {
+                "value": "A walk in the park",
+                "style": {
+                  "font": {
+                    "Weak": {
+                      "Uuid": {
+                        "uuid": "97128bb1-2588-480b-bdc6-87b4adbec477"
+                      }
+                    }
+                  },
+                  "font_size": 25.0,
+                  "color": {
+                    "LinearRgba": {
+                      "red": 1.0,
+                      "green": 1.0,
+                      "blue": 1.0,
+                      "alpha": 1.0
+                    }
+                  }
+                }
+              }
+            ],
+            "style": {
+              "display": "Flex",
+              "position_type": "Absolute",
+              "overflow": {
+                "x": "Visible",
+                "y": "Visible"
+              },
+              "left": "Auto",
+              "right": "Auto",
+              "top": "Auto",
+              "bottom": {
+                "Px": 0.0
+              },
+              "width": "Auto",
+              "height": "Auto",
+              "min_width": "Auto",
+              "min_height": "Auto",
+              "max_width": "Auto",
+              "max_height": "Auto",
+              "aspect_ratio": null,
+              "align_items": "Default",
+              "justify_items": "Default",
+              "align_self": "Auto",
+              "justify_self": "Auto",
+              "align_content": "Default",
+              "justify_content": "Default",
+              "margin": {
+                "left": {
+                  "Px": 0.0
+                },
+                "right": {
+                  "Px": 0.0
+                },
+                "top": {
+                  "Px": 0.0
+                },
+                "bottom": {
+                  "Px": 0.0
+                }
+              },
+              "padding": {
+                "left": {
+                  "Px": 0.0
+                },
+                "right": {
+                  "Px": 0.0
+                },
+                "top": {
+                  "Px": 0.0
+                },
+                "bottom": {
+                  "Px": 0.0
+                }
+              },
+              "border": {
+                "left": {
+                  "Px": 0.0
+                },
+                "right": {
+                  "Px": 0.0
+                },
+                "top": {
+                  "Px": 0.0
+                },
+                "bottom": {
+                  "Px": 0.0
+                }
+              },
+              "flex_direction": "Row",
+              "flex_wrap": "NoWrap",
+              "flex_grow": 0.0,
+              "flex_shrink": 1.0,
+              "flex_basis": "Auto",
+              "row_gap": {
+                "Px": 0.0
+              },
+              "column_gap": {
+                "Px": 0.0
+              },
+              "grid_auto_flow": "Row",
+              "grid_template_rows": [],
+              "grid_template_columns": [],
+              "grid_auto_rows": [],
+              "grid_auto_columns": [],
+              "grid_row": {
+                "start": null,
+                "span": 1,
+                "end": null
+              },
+              "grid_column": {
+                "start": null,
+                "span": 1,
+                "end": null
+              }
+            },
+            "visibility": "Hidden",
+            "linebreak": "NoWrap"
+          }
+        },
+        "bevy_core::name::Name": "Collectable Label",
+        "mrchantey_beetmash_sewb::rendering::delay_visibility::DelayVisibility": {
+          "timer": {
+            "stopwatch": {
+              "elapsed": {
+                "secs": 0,
+                "nanos": 0
+              },
+              "paused": false
+            },
+            "duration": {
+              "secs": 0,
+              "nanos": 48000000
+            },
+            "mode": "Once",
+            "finished": false,
+            "times_finished_this_tick": 0
+          }
+        },
+        "mrchantey_beetmash_sewb::rendering::world_space_ui::WorldSpaceUi": {},
+        "mrchantey_beetmash_sewb::utils::despawn_chain::DespawnChain": [
+          4294967336
+        ]
+      }
+    },
+    "4294967338": {
+      "components": {
+        "beetmash_scene::utils::bundle_placeholder::BundlePlaceholder": {
+          "Pbr": {
+            "mesh": {
+              "Cylinder": {
+                "radius": 0.5,
+                "half_height": 0.001
+              }
+            },
+            "material": {
+              "StandardMaterial": {
+                "base_color": {
+                  "Srgba": {
+                    "red": 0.0627451,
+                    "green": 0.7254902,
+                    "blue": 0.5058824,
+                    "alpha": 1.0
+                  }
+                },
+                "unlit": true
+              }
+            }
+          }
+        },
+        "bevy_core::name::Name": "Collectable",
+        "bevy_render::view::visibility::InheritedVisibility": [
+          false
+        ],
+        "bevy_render::view::visibility::ViewVisibility": [
+          false
+        ],
+        "bevy_render::view::visibility::Visibility": "Hidden",
+        "bevy_transform::components::global_transform::GlobalTransform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "bevy_transform::components::transform::Transform": {
+          "translation": [
+            2.4169683,
+            0.0,
+            -6.21284
+          ],
+          "rotation": [
+            1.0,
+            0.0,
+            0.0,
+            -4.371139e-8
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "mrchantey_beetmash_sewb::mechanics::collectable::Collectable": {},
+        "mrchantey_beetmash_sewb::rendering::delay_visibility::DelayVisibility": {
+          "timer": {
+            "stopwatch": {
+              "elapsed": {
+                "secs": 0,
+                "nanos": 0
+              },
+              "paused": false
+            },
+            "duration": {
+              "secs": 0,
+              "nanos": 48000000
+            },
+            "mode": "Once",
+            "finished": false,
+            "times_finished_this_tick": 0
+          }
+        }
+      }
+    },
+    "4294967339": {
+      "components": {
+        "beet_flow::lifecycle::components::target_agent::TargetAgent": [
+          4294967338
+        ],
+        "beetmash_scene::utils::bundle_placeholder::BundlePlaceholder": {
+          "Text": {
+            "sections": [
+              {
+                "value": "A walk in the park",
+                "style": {
+                  "font": {
+                    "Weak": {
+                      "Uuid": {
+                        "uuid": "97128bb1-2588-480b-bdc6-87b4adbec477"
+                      }
+                    }
+                  },
+                  "font_size": 25.0,
+                  "color": {
+                    "LinearRgba": {
+                      "red": 1.0,
+                      "green": 1.0,
+                      "blue": 1.0,
+                      "alpha": 1.0
+                    }
+                  }
+                }
+              }
+            ],
+            "style": {
+              "display": "Flex",
+              "position_type": "Absolute",
+              "overflow": {
+                "x": "Visible",
+                "y": "Visible"
+              },
+              "left": "Auto",
+              "right": "Auto",
+              "top": "Auto",
+              "bottom": {
+                "Px": 0.0
+              },
+              "width": "Auto",
+              "height": "Auto",
+              "min_width": "Auto",
+              "min_height": "Auto",
+              "max_width": "Auto",
+              "max_height": "Auto",
+              "aspect_ratio": null,
+              "align_items": "Default",
+              "justify_items": "Default",
+              "align_self": "Auto",
+              "justify_self": "Auto",
+              "align_content": "Default",
+              "justify_content": "Default",
+              "margin": {
+                "left": {
+                  "Px": 0.0
+                },
+                "right": {
+                  "Px": 0.0
+                },
+                "top": {
+                  "Px": 0.0
+                },
+                "bottom": {
+                  "Px": 0.0
+                }
+              },
+              "padding": {
+                "left": {
+                  "Px": 0.0
+                },
+                "right": {
+                  "Px": 0.0
+                },
+                "top": {
+                  "Px": 0.0
+                },
+                "bottom": {
+                  "Px": 0.0
+                }
+              },
+              "border": {
+                "left": {
+                  "Px": 0.0
+                },
+                "right": {
+                  "Px": 0.0
+                },
+                "top": {
+                  "Px": 0.0
+                },
+                "bottom": {
+                  "Px": 0.0
+                }
+              },
+              "flex_direction": "Row",
+              "flex_wrap": "NoWrap",
+              "flex_grow": 0.0,
+              "flex_shrink": 1.0,
+              "flex_basis": "Auto",
+              "row_gap": {
+                "Px": 0.0
+              },
+              "column_gap": {
+                "Px": 0.0
+              },
+              "grid_auto_flow": "Row",
+              "grid_template_rows": [],
+              "grid_template_columns": [],
+              "grid_auto_rows": [],
+              "grid_auto_columns": [],
+              "grid_row": {
+                "start": null,
+                "span": 1,
+                "end": null
+              },
+              "grid_column": {
+                "start": null,
+                "span": 1,
+                "end": null
+              }
+            },
+            "visibility": "Hidden",
+            "linebreak": "NoWrap"
+          }
+        },
+        "bevy_core::name::Name": "Collectable Label",
+        "mrchantey_beetmash_sewb::rendering::delay_visibility::DelayVisibility": {
+          "timer": {
+            "stopwatch": {
+              "elapsed": {
+                "secs": 0,
+                "nanos": 0
+              },
+              "paused": false
+            },
+            "duration": {
+              "secs": 0,
+              "nanos": 48000000
+            },
+            "mode": "Once",
+            "finished": false,
+            "times_finished_this_tick": 0
+          }
+        },
+        "mrchantey_beetmash_sewb::rendering::world_space_ui::WorldSpaceUi": {},
+        "mrchantey_beetmash_sewb::utils::despawn_chain::DespawnChain": [
+          4294967338
+        ]
+      }
+    },
+    "4294967340": {
+      "components": {
+        "beetmash_scene::utils::bundle_placeholder::BundlePlaceholder": {
+          "Pbr": {
+            "mesh": {
+              "Cylinder": {
+                "radius": 0.5,
+                "half_height": 0.001
+              }
+            },
+            "material": {
+              "StandardMaterial": {
+                "base_color": {
+                  "Srgba": {
+                    "red": 0.0627451,
+                    "green": 0.7254902,
+                    "blue": 0.5058824,
+                    "alpha": 1.0
+                  }
+                },
+                "unlit": true
+              }
+            }
+          }
+        },
+        "bevy_core::name::Name": "Collectable",
+        "bevy_render::view::visibility::InheritedVisibility": [
+          false
+        ],
+        "bevy_render::view::visibility::ViewVisibility": [
+          false
+        ],
+        "bevy_render::view::visibility::Visibility": "Hidden",
+        "bevy_transform::components::global_transform::GlobalTransform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "bevy_transform::components::transform::Transform": {
+          "translation": [
+            10.926027,
+            0.0,
+            6.869731
+          ],
+          "rotation": [
+            1.0,
+            0.0,
+            0.0,
+            -4.371139e-8
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "mrchantey_beetmash_sewb::mechanics::collectable::Collectable": {},
+        "mrchantey_beetmash_sewb::rendering::delay_visibility::DelayVisibility": {
+          "timer": {
+            "stopwatch": {
+              "elapsed": {
+                "secs": 0,
+                "nanos": 0
+              },
+              "paused": false
+            },
+            "duration": {
+              "secs": 0,
+              "nanos": 48000000
+            },
+            "mode": "Once",
+            "finished": false,
+            "times_finished_this_tick": 0
+          }
+        }
+      }
+    },
+    "4294967341": {
+      "components": {
+        "beet_flow::lifecycle::components::target_agent::TargetAgent": [
+          4294967340
+        ],
+        "beetmash_scene::utils::bundle_placeholder::BundlePlaceholder": {
+          "Text": {
+            "sections": [
+              {
+                "value": "A walk in the park",
+                "style": {
+                  "font": {
+                    "Weak": {
+                      "Uuid": {
+                        "uuid": "97128bb1-2588-480b-bdc6-87b4adbec477"
+                      }
+                    }
+                  },
+                  "font_size": 25.0,
+                  "color": {
+                    "LinearRgba": {
+                      "red": 1.0,
+                      "green": 1.0,
+                      "blue": 1.0,
+                      "alpha": 1.0
+                    }
+                  }
+                }
+              }
+            ],
+            "style": {
+              "display": "Flex",
+              "position_type": "Absolute",
+              "overflow": {
+                "x": "Visible",
+                "y": "Visible"
+              },
+              "left": "Auto",
+              "right": "Auto",
+              "top": "Auto",
+              "bottom": {
+                "Px": 0.0
+              },
+              "width": "Auto",
+              "height": "Auto",
+              "min_width": "Auto",
+              "min_height": "Auto",
+              "max_width": "Auto",
+              "max_height": "Auto",
+              "aspect_ratio": null,
+              "align_items": "Default",
+              "justify_items": "Default",
+              "align_self": "Auto",
+              "justify_self": "Auto",
+              "align_content": "Default",
+              "justify_content": "Default",
+              "margin": {
+                "left": {
+                  "Px": 0.0
+                },
+                "right": {
+                  "Px": 0.0
+                },
+                "top": {
+                  "Px": 0.0
+                },
+                "bottom": {
+                  "Px": 0.0
+                }
+              },
+              "padding": {
+                "left": {
+                  "Px": 0.0
+                },
+                "right": {
+                  "Px": 0.0
+                },
+                "top": {
+                  "Px": 0.0
+                },
+                "bottom": {
+                  "Px": 0.0
+                }
+              },
+              "border": {
+                "left": {
+                  "Px": 0.0
+                },
+                "right": {
+                  "Px": 0.0
+                },
+                "top": {
+                  "Px": 0.0
+                },
+                "bottom": {
+                  "Px": 0.0
+                }
+              },
+              "flex_direction": "Row",
+              "flex_wrap": "NoWrap",
+              "flex_grow": 0.0,
+              "flex_shrink": 1.0,
+              "flex_basis": "Auto",
+              "row_gap": {
+                "Px": 0.0
+              },
+              "column_gap": {
+                "Px": 0.0
+              },
+              "grid_auto_flow": "Row",
+              "grid_template_rows": [],
+              "grid_template_columns": [],
+              "grid_auto_rows": [],
+              "grid_auto_columns": [],
+              "grid_row": {
+                "start": null,
+                "span": 1,
+                "end": null
+              },
+              "grid_column": {
+                "start": null,
+                "span": 1,
+                "end": null
+              }
+            },
+            "visibility": "Hidden",
+            "linebreak": "NoWrap"
+          }
+        },
+        "bevy_core::name::Name": "Collectable Label",
+        "mrchantey_beetmash_sewb::rendering::delay_visibility::DelayVisibility": {
+          "timer": {
+            "stopwatch": {
+              "elapsed": {
+                "secs": 0,
+                "nanos": 0
+              },
+              "paused": false
+            },
+            "duration": {
+              "secs": 0,
+              "nanos": 48000000
+            },
+            "mode": "Once",
+            "finished": false,
+            "times_finished_this_tick": 0
+          }
+        },
+        "mrchantey_beetmash_sewb::rendering::world_space_ui::WorldSpaceUi": {},
+        "mrchantey_beetmash_sewb::utils::despawn_chain::DespawnChain": [
+          4294967340
+        ]
+      }
+    },
+    "4294967342": {
+      "components": {
+        "beetmash_scene::utils::bundle_placeholder::BundlePlaceholder": {
+          "Pbr": {
+            "mesh": {
+              "Cylinder": {
+                "radius": 0.5,
+                "half_height": 0.001
+              }
+            },
+            "material": {
+              "StandardMaterial": {
+                "base_color": {
+                  "Srgba": {
+                    "red": 0.0627451,
+                    "green": 0.7254902,
+                    "blue": 0.5058824,
+                    "alpha": 1.0
+                  }
+                },
+                "unlit": true
+              }
+            }
+          }
+        },
+        "bevy_core::name::Name": "Collectable",
+        "bevy_render::view::visibility::InheritedVisibility": [
+          false
+        ],
+        "bevy_render::view::visibility::ViewVisibility": [
+          false
+        ],
+        "bevy_render::view::visibility::Visibility": "Hidden",
+        "bevy_transform::components::global_transform::GlobalTransform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "bevy_transform::components::transform::Transform": {
+          "translation": [
+            5.5176163,
+            0.0,
+            18.851328
+          ],
+          "rotation": [
+            1.0,
+            0.0,
+            0.0,
+            -4.371139e-8
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "mrchantey_beetmash_sewb::mechanics::collectable::Collectable": {},
+        "mrchantey_beetmash_sewb::rendering::delay_visibility::DelayVisibility": {
+          "timer": {
+            "stopwatch": {
+              "elapsed": {
+                "secs": 0,
+                "nanos": 0
+              },
+              "paused": false
+            },
+            "duration": {
+              "secs": 0,
+              "nanos": 48000000
+            },
+            "mode": "Once",
+            "finished": false,
+            "times_finished_this_tick": 0
+          }
+        }
+      }
+    },
+    "4294967343": {
+      "components": {
+        "beet_flow::lifecycle::components::target_agent::TargetAgent": [
+          4294967342
+        ],
+        "beetmash_scene::utils::bundle_placeholder::BundlePlaceholder": {
+          "Text": {
+            "sections": [
+              {
+                "value": "A walk in the park",
+                "style": {
+                  "font": {
+                    "Weak": {
+                      "Uuid": {
+                        "uuid": "97128bb1-2588-480b-bdc6-87b4adbec477"
+                      }
+                    }
+                  },
+                  "font_size": 25.0,
+                  "color": {
+                    "LinearRgba": {
+                      "red": 1.0,
+                      "green": 1.0,
+                      "blue": 1.0,
+                      "alpha": 1.0
+                    }
+                  }
+                }
+              }
+            ],
+            "style": {
+              "display": "Flex",
+              "position_type": "Absolute",
+              "overflow": {
+                "x": "Visible",
+                "y": "Visible"
+              },
+              "left": "Auto",
+              "right": "Auto",
+              "top": "Auto",
+              "bottom": {
+                "Px": 0.0
+              },
+              "width": "Auto",
+              "height": "Auto",
+              "min_width": "Auto",
+              "min_height": "Auto",
+              "max_width": "Auto",
+              "max_height": "Auto",
+              "aspect_ratio": null,
+              "align_items": "Default",
+              "justify_items": "Default",
+              "align_self": "Auto",
+              "justify_self": "Auto",
+              "align_content": "Default",
+              "justify_content": "Default",
+              "margin": {
+                "left": {
+                  "Px": 0.0
+                },
+                "right": {
+                  "Px": 0.0
+                },
+                "top": {
+                  "Px": 0.0
+                },
+                "bottom": {
+                  "Px": 0.0
+                }
+              },
+              "padding": {
+                "left": {
+                  "Px": 0.0
+                },
+                "right": {
+                  "Px": 0.0
+                },
+                "top": {
+                  "Px": 0.0
+                },
+                "bottom": {
+                  "Px": 0.0
+                }
+              },
+              "border": {
+                "left": {
+                  "Px": 0.0
+                },
+                "right": {
+                  "Px": 0.0
+                },
+                "top": {
+                  "Px": 0.0
+                },
+                "bottom": {
+                  "Px": 0.0
+                }
+              },
+              "flex_direction": "Row",
+              "flex_wrap": "NoWrap",
+              "flex_grow": 0.0,
+              "flex_shrink": 1.0,
+              "flex_basis": "Auto",
+              "row_gap": {
+                "Px": 0.0
+              },
+              "column_gap": {
+                "Px": 0.0
+              },
+              "grid_auto_flow": "Row",
+              "grid_template_rows": [],
+              "grid_template_columns": [],
+              "grid_auto_rows": [],
+              "grid_auto_columns": [],
+              "grid_row": {
+                "start": null,
+                "span": 1,
+                "end": null
+              },
+              "grid_column": {
+                "start": null,
+                "span": 1,
+                "end": null
+              }
+            },
+            "visibility": "Hidden",
+            "linebreak": "NoWrap"
+          }
+        },
+        "bevy_core::name::Name": "Collectable Label",
+        "mrchantey_beetmash_sewb::rendering::delay_visibility::DelayVisibility": {
+          "timer": {
+            "stopwatch": {
+              "elapsed": {
+                "secs": 0,
+                "nanos": 0
+              },
+              "paused": false
+            },
+            "duration": {
+              "secs": 0,
+              "nanos": 48000000
+            },
+            "mode": "Once",
+            "finished": false,
+            "times_finished_this_tick": 0
+          }
+        },
+        "mrchantey_beetmash_sewb::rendering::world_space_ui::WorldSpaceUi": {},
+        "mrchantey_beetmash_sewb::utils::despawn_chain::DespawnChain": [
+          4294967342
+        ]
+      }
+    },
+    "4294967344": {
+      "components": {
+        "beetmash_scene::utils::bundle_placeholder::BundlePlaceholder": {
+          "Pbr": {
+            "mesh": {
+              "Cylinder": {
+                "radius": 0.5,
+                "half_height": 0.001
+              }
+            },
+            "material": {
+              "StandardMaterial": {
+                "base_color": {
+                  "Srgba": {
+                    "red": 0.0627451,
+                    "green": 0.7254902,
+                    "blue": 0.5058824,
+                    "alpha": 1.0
+                  }
+                },
+                "unlit": true
+              }
+            }
+          }
+        },
+        "bevy_core::name::Name": "Collectable",
+        "bevy_render::view::visibility::InheritedVisibility": [
+          false
+        ],
+        "bevy_render::view::visibility::ViewVisibility": [
+          false
+        ],
+        "bevy_render::view::visibility::Visibility": "Hidden",
+        "bevy_transform::components::global_transform::GlobalTransform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "bevy_transform::components::transform::Transform": {
+          "translation": [
+            3.8227034,
+            0.0,
+            -9.231782
+          ],
+          "rotation": [
+            1.0,
+            0.0,
+            0.0,
+            -4.371139e-8
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "mrchantey_beetmash_sewb::mechanics::collectable::Collectable": {},
+        "mrchantey_beetmash_sewb::rendering::delay_visibility::DelayVisibility": {
+          "timer": {
+            "stopwatch": {
+              "elapsed": {
+                "secs": 0,
+                "nanos": 0
+              },
+              "paused": false
+            },
+            "duration": {
+              "secs": 0,
+              "nanos": 48000000
+            },
+            "mode": "Once",
+            "finished": false,
+            "times_finished_this_tick": 0
+          }
+        }
+      }
+    },
+    "4294967345": {
+      "components": {
+        "beet_flow::lifecycle::components::target_agent::TargetAgent": [
+          4294967344
+        ],
+        "beetmash_scene::utils::bundle_placeholder::BundlePlaceholder": {
+          "Text": {
+            "sections": [
+              {
+                "value": "A walk in the park",
+                "style": {
+                  "font": {
+                    "Weak": {
+                      "Uuid": {
+                        "uuid": "97128bb1-2588-480b-bdc6-87b4adbec477"
+                      }
+                    }
+                  },
+                  "font_size": 25.0,
+                  "color": {
+                    "LinearRgba": {
+                      "red": 1.0,
+                      "green": 1.0,
+                      "blue": 1.0,
+                      "alpha": 1.0
+                    }
+                  }
+                }
+              }
+            ],
+            "style": {
+              "display": "Flex",
+              "position_type": "Absolute",
+              "overflow": {
+                "x": "Visible",
+                "y": "Visible"
+              },
+              "left": "Auto",
+              "right": "Auto",
+              "top": "Auto",
+              "bottom": {
+                "Px": 0.0
+              },
+              "width": "Auto",
+              "height": "Auto",
+              "min_width": "Auto",
+              "min_height": "Auto",
+              "max_width": "Auto",
+              "max_height": "Auto",
+              "aspect_ratio": null,
+              "align_items": "Default",
+              "justify_items": "Default",
+              "align_self": "Auto",
+              "justify_self": "Auto",
+              "align_content": "Default",
+              "justify_content": "Default",
+              "margin": {
+                "left": {
+                  "Px": 0.0
+                },
+                "right": {
+                  "Px": 0.0
+                },
+                "top": {
+                  "Px": 0.0
+                },
+                "bottom": {
+                  "Px": 0.0
+                }
+              },
+              "padding": {
+                "left": {
+                  "Px": 0.0
+                },
+                "right": {
+                  "Px": 0.0
+                },
+                "top": {
+                  "Px": 0.0
+                },
+                "bottom": {
+                  "Px": 0.0
+                }
+              },
+              "border": {
+                "left": {
+                  "Px": 0.0
+                },
+                "right": {
+                  "Px": 0.0
+                },
+                "top": {
+                  "Px": 0.0
+                },
+                "bottom": {
+                  "Px": 0.0
+                }
+              },
+              "flex_direction": "Row",
+              "flex_wrap": "NoWrap",
+              "flex_grow": 0.0,
+              "flex_shrink": 1.0,
+              "flex_basis": "Auto",
+              "row_gap": {
+                "Px": 0.0
+              },
+              "column_gap": {
+                "Px": 0.0
+              },
+              "grid_auto_flow": "Row",
+              "grid_template_rows": [],
+              "grid_template_columns": [],
+              "grid_auto_rows": [],
+              "grid_auto_columns": [],
+              "grid_row": {
+                "start": null,
+                "span": 1,
+                "end": null
+              },
+              "grid_column": {
+                "start": null,
+                "span": 1,
+                "end": null
+              }
+            },
+            "visibility": "Hidden",
+            "linebreak": "NoWrap"
+          }
+        },
+        "bevy_core::name::Name": "Collectable Label",
+        "mrchantey_beetmash_sewb::rendering::delay_visibility::DelayVisibility": {
+          "timer": {
+            "stopwatch": {
+              "elapsed": {
+                "secs": 0,
+                "nanos": 0
+              },
+              "paused": false
+            },
+            "duration": {
+              "secs": 0,
+              "nanos": 48000000
+            },
+            "mode": "Once",
+            "finished": false,
+            "times_finished_this_tick": 0
+          }
+        },
+        "mrchantey_beetmash_sewb::rendering::world_space_ui::WorldSpaceUi": {},
+        "mrchantey_beetmash_sewb::utils::despawn_chain::DespawnChain": [
+          4294967344
+        ]
+      }
+    }
+  }
+}
